@@ -1,0 +1,94 @@
+/*
+Description
+依照下面主函数的代码输入4组数据，由sum()函数计算任意两个数据的和(只保留整数)。
+
+注意：两个相加的数据未必是同一类型且顺序可以互换
+
+要求：
+
+（1）若两个数据都是字符串，则将它们连接。
+
+（2）若两个数据中只有一个是字符串，则字符串的值按字符个数计算，如“abcd”+5，其值为9。
+
+
+注意：本程序需要在codeblocks中运行，VC中会有语法错误。
+
+
+Input
+ 
+
+输入8个数据
+
+
+Output
+输出每两个数据的和（或特定意义的和）
+
+
+Sample Input
+1 2
+A B
+abc  12345
+3.14  12.98
+Sample Output
+3
+67
+6
+5
+13
+131
+70
+69
+77
+abc12345
+20
+8
+16
+*/
+#include<iostream>
+using namespace std;
+#include<cstring>
+
+template<class T,class T1>
+int sum(T a,T1 b)
+{
+	return a+b;
+}
+
+template<class T>
+int sum(char a[20],T b)
+{
+	return strlen(a)+b;
+}
+
+template<class T>
+int sum(T a,char b[20])
+{
+	return a+strlen(b);
+}
+
+char * sum(char a[20],char b[20])
+{
+	return	strcat(a,b);
+}
+
+int main()
+{
+     int  n1,n2;
+     char c1,c2,s1[20],s2[20];
+     float x1,x2;
+     cin>>n1>>n2>>c1>>c2>>s1>>s2>>x1>>x2;
+     cout<<sum(n1,n2)<<endl;
+     cout<<sum(n1,c2)<<endl;
+     cout<<sum(n1,s2)<<endl;
+     cout<<sum(s1,n2)<<endl; 
+     cout<<sum(n1,x2)<<endl;
+     cout<<sum(c1,c2)<<endl;
+     cout<<sum(c1,s2)<<endl;
+     cout<<sum(s1,c2)<<endl;
+     cout<<sum(c1,x2)<<endl;
+     cout<<sum(s1,s2)<<endl;
+     cout<<sum(s1,x2)<<endl;
+     cout<<sum(x1,s2)<<endl;
+     cout<<sum(x1,x2)<<endl;
+     return 0; 
+}

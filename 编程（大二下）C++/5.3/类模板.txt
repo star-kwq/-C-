@@ -1,0 +1,103 @@
+/*
+Description
+每个学生有两项数据：学号和分数，其中，有些学生的学号是整数，有些是字符串（string类的对象），而分数则可能是int或float。键盘输入三个学生的数据，第一个学生的数据是：字符串+整数，第二个学生的数据是：整数+整数，第三个学生的数据是：整数+实数。
+
+
+
+编程生成这三个对象，然后输出他们的信息。
+
+
+Input
+三行数据：
+
+
+
+第一行：一个字符串，一个整数
+
+
+
+第二行：两个整数
+
+
+
+第三行：一个整数，一个实数
+
+
+Output
+输出三个学生的信息
+
+
+Sample Input
+09081101 90
+12 80
+5 92.5
+Sample Output
+Num:09081101,Score:90
+Num:12,Score:80
+Num:5,Score:92.5
+*/
+//////////////////////////////////////////////////////////////////////
+// Student.h: interface for the Time class.
+//
+
+#if !defined(AFX_TIME_H__C09AC8C2_3C7B_4161_A710_68B8FBCFCE6A__INCLUDED_)
+#define AFX_TIME_H__C09AC8C2_3C7B_4161_A710_68B8FBCFCE6A__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
+
+#include<iostream>
+using namespace std;
+#include<string>
+
+template<class T,class T1>
+class Student  
+{
+public:
+	Student(T,T1);
+	void disp();
+protected:
+	T m;
+	T1 f;
+
+};
+
+#endif // !defined(AFX_TIME_H__C09AC8C2_3C7B_4161_A710_68B8FBCFCE6A__INCLUDED_)
+template<class T,class T1>
+Student<T,T1>::Student(T a,T1 b)
+{
+	m=a;
+	f=b;
+}
+template<class T,class T1>
+void Student<T,T1>::disp()
+{
+	cout<<"Num:"<<m<<","<<"Score:"<<f<<endl;
+}
+//////////////////////////////////////////
+//zhu.cpp
+/*
+#include<iostream>
+using namespace std;  //多文件用
+#include<string>
+#include"Student.h"
+*/
+int main() 
+{ 
+    string str; 
+    int n,s; 
+    float x; 
+    cin>>str>>s; 
+    Student<string,int> s1(str,s);  //生成第1个对象
+    cin>>n>>s; 
+    Student<int,int> s2(n,s);   //生成第2个对象
+    cin>>n>>x;
+    Student<int,float> s3(n,x);   //生成第3个对象
+
+    //请在下面添加代码显示三个学生的信息
+	s1.disp();
+	s2.disp();
+	s3.disp();
+    return 0; 
+} 
